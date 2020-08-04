@@ -1,0 +1,575 @@
+<html>
+<head>
+<title>Smart Handwasher</title>
+</head>
+
+
+<style>
+/* IDLE SCREEN STYLES */
+/* Container */
+.containerIdle {
+  position: relative;
+  width: 480px;
+  height: 320px;
+}
+
+/* Logo style */
+.logostyleIdle {
+    position: absolute;
+    left: 15%;
+    right: 17.5%;
+    top: 28%;
+    bottom: 60%;
+}
+
+/* Text style for the header */
+.textheaderstyleIdle {
+  position: absolute;
+  left: 0%;
+  right: 0%;
+  top: 41.56%;
+  bottom: 34.38%;
+
+  font-family: Barlow;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 36px;
+  line-height: 35px;
+  /* or 97% */
+  text-align: center;
+  letter-spacing: -1px;
+
+  color: #FFFFFF;
+
+  mix-blend-mode: normal;
+  }
+
+/* Text style for the subtitle */
+.subtextstyleIdle {
+  position: absolute;
+  left: 1.46%;
+  right: 1.25%;
+  top: 79.69%;
+  bottom: 8.12%;
+
+  font-family: Barlow;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 24px;
+  line-height: 24px;
+  /* or 100% */
+  text-align: center;
+  letter-spacing: -1px;
+
+  color: #FFFFFF;
+
+  mix-blend-mode: normal;
+}
+
+
+/* HANDWASH SCREEN STYLES */
+/* Column */
+.columnHandwash {
+  float: left;
+}
+
+.leftHandwash {
+  width: 60%;
+}
+
+.rightHandwash {
+  width: 40%;
+}
+
+/* Container */
+.containerHandwash {
+  position: relative;
+  width: 480px;
+  height: 320px;
+}
+
+/* Logo style */
+.logostyleHandwash {
+  position: absolute;
+  left: 39.58%;
+  right: 39.58%;
+  top: 7.19%;
+  bottom: 61.56%;
+}
+
+/* Text style for the header */
+.textheaderstyleHandwash {
+  position: absolute;
+  left: 0%;
+  right: 30.75%;
+  top: 0%;
+  bottom: 86.35%;
+
+  font-family: Barlow;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 23px;
+  /* or 96% */
+  text-align: center;
+  letter-spacing: -1px;
+
+  color: #FFFFFF;
+
+  mix-blend-mode: normal;
+  }
+
+/* Timer */
+.body {
+  font-family: Barlow;
+  display: grid;
+  height: 50vh;
+  place-items: center;
+}
+
+.base-timer {
+  position: absolute;
+  width: 150px;
+  height: 150px;
+
+  left: 18%;
+  top: 20%;
+
+}
+
+.base-timer__svg {
+  transform: scaleX(1);
+}
+
+.base-timer__circle {
+  fill: none;
+  stroke: none;
+}
+
+.base-timer__path-elapsed {
+  stroke-width: 10px;
+  stroke: #00A3FF;
+}
+
+.base-timer__path-remaining {
+  stroke-width: 10px;
+  stroke-linecap: round;
+  transform: rotate(90deg);
+  transform-origin: center;
+  transition: 1s linear all;
+  fill-rule: nonzero;
+  stroke: currentColor;
+}
+
+.base-timer__path-remaining.green {
+  color: rgb(65, 184, 131);
+}
+
+.base-timer__path-remaining.MEDIUMAQUAMARINE {
+  color: MEDIUMAQUAMARINE;
+}
+
+.base-timer__path-remaining.LIGHTGREEN {
+  color: LIGHTGREEN;
+}
+
+.base-timer__label {
+  position: absolute;
+  width: 150px;
+  height: 150px;
+  top: 0%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 72px;
+  font-family: Barlow;
+  color: #FFFFFF;
+}
+
+
+/* Text style for the subtitle */
+.subtextstyleHandwash {
+  position: absolute;
+  left: 0%;
+  right: 30.75%;
+  top: 65%;
+  bottom: 12.5%;
+
+  font-family: Barlow;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 18px;
+  /* or 100% */
+  text-align: center;
+  letter-spacing: -1px;
+
+  color: #FFFFFF;
+
+  mix-blend-mode: normal;
+}
+
+/* Small Logo */
+.smalllogoHandwash {
+  position: absolute;
+  left: 1.46%;
+  right: 79.79%;
+  top: 90.94%;
+  bottom: 0%;
+}
+
+/* DONE SCREEN STYLES */
+
+/* Container */
+.containerDone {
+  position: relative;
+  width: 480px;
+  height: 320px;
+}
+
+/* Logo style */
+.logostyleDone {
+  position: absolute;
+  left: 39.58%;
+  right: 39.58%;
+  top: 7.19%;
+  bottom: 61.56%;
+}
+
+/* Text style for the header */
+.textheaderstyleDone {
+  position: relative;
+  left: 0%;
+  right: 0%;
+  top: 38.44%;
+  bottom: 45.62%;
+
+  font-family: Barlow;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 48px;
+  line-height: 58px;
+  text-align: center;
+  letter-spacing: -1px;
+
+  color: #FFFFFF;
+
+  mix-blend-mode: normal;
+  }
+
+/* Text style for the subtitle */
+.subtextstyleDone {
+  position: absolute;
+  left: 0%;
+  right: 0%;
+  top: 48.12%;
+  bottom: 26.56%;
+
+  font-family: Barlow;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 36px;
+  line-height: 35px;
+  /* or 97% */
+  text-align: center;
+  letter-spacing: -1px;
+
+  color: #FFFFFF;
+
+  mix-blend-mode: normal;
+}
+
+/* Small Logo */
+.smalllogoDone {
+  position: absolute;
+  left: 1.46%;
+  right: 79.79%;
+  top: 90.94%;
+  /*top: 2%;*/
+  bottom: 0%;
+}
+
+</style>
+
+<!-- INWASH SCREEN TIMER SCRIPT -->
+<script>
+  //require('./renderer.js');
+
+  const FULL_DASH_ARRAY = 283;
+  const WARNING_THRESHOLD = 10;
+  const ALERT_THRESHOLD = 5;
+
+  const COLOR_CODES = {
+    info: {
+      color: "green"
+    },
+    warning: {
+      color: "MEDIUMAQUAMARINE",
+      threshold: WARNING_THRESHOLD
+    },
+    alert: {
+      color: "LIGHTGREEN",
+      threshold: ALERT_THRESHOLD
+    }
+  };
+
+  const TIME_LIMIT = 21;
+  let timePassed = 0;
+  let timeLeft = TIME_LIMIT;
+  let timerInterval = null;
+  let remainingPathColor = COLOR_CODES.info.color;
+
+  //startTimer();
+
+  /* When the timer hits 0, direct to completion screen */
+  function onTimesUp() {
+    clearInterval(timerInterval);
+
+    //window.location.replace("Completion_screen.html");
+  }
+
+  function resetTimer(){
+    timeLeft=TIME_LIMIT;
+    timePassed = 0;
+  }
+
+  function hasTimerExpired(){
+    return (timeLeft <= 0);
+  }
+
+  function isFirstRun(){
+    return (timeLeft==TIME_LIMIT);
+  }
+
+  function startTimer() {
+    timerInterval = setInterval(() => {
+      timePassed = timePassed += 1;
+      timeLeft = TIME_LIMIT - timePassed;
+      document.getElementById("base-timer-label").innerHTML = formatTime(
+        timeLeft
+      );
+      setCircleDasharray();
+      setRemainingPathColor(timeLeft);
+
+      if (timeLeft === 0) {
+        onTimesUp();
+      }
+    }, 1000);
+  }
+
+  function formatTime(time) {
+    const minutes = Math.floor(time / 60);
+    let seconds = time % 60;
+
+    if (seconds < 10) {
+      seconds = `0${seconds}`;
+    }
+
+    return `${seconds}`;
+  }
+
+  function setRemainingPathColor(timeLeft) {
+    const { alert, warning, info } = COLOR_CODES;
+    if (timeLeft <= alert.threshold) {
+      document
+        .getElementById("base-timer-path-remaining")
+        .classList.remove(warning.color);
+      document
+        .getElementById("base-timer-path-remaining")
+        .classList.add(alert.color);
+    } else if (timeLeft <= warning.threshold) {
+      document
+        .getElementById("base-timer-path-remaining")
+        .classList.remove(info.color);
+      document
+        .getElementById("base-timer-path-remaining")
+        .classList.add(warning.color);
+    }
+  }
+
+  function calculateTimeFraction() {
+    const rawTimeFraction = timeLeft / TIME_LIMIT;
+    return rawTimeFraction - (1 / TIME_LIMIT) * (1 - rawTimeFraction);
+  }
+
+  function setCircleDasharray() {
+    const circleDasharray = `${(
+      calculateTimeFraction() * FULL_DASH_ARRAY
+    ).toFixed(0)} 283`;
+    document
+      .getElementById("base-timer-path-remaining")
+      .setAttribute("stroke-dasharray", circleDasharray);
+  }
+
+</script>
+
+<body style="background-color:black;">
+
+  <!-- BEGIN IDLE SCREEN DIVS -->
+
+  <div class="containerIdle" id="idle-div">
+
+    <div class="logostyleIdle">
+    <img src="/static/Logo.png" alt="HandPro Logo" width="340" height="60">
+    </div>
+  
+      <div class="textheaderstyleIdle">
+      <p>The hand washing assistant that helps us stay safe.</p>
+      </div>
+  
+      <div class="subtextstyleIdle">
+        <p>Start washing your hands in the sink to begin.</p>
+      </div>
+  
+  </div>
+
+  <!-- END IDLE SCREEN DIVS-->
+
+<!-- BEGIN HANDWASH SCREEN DIVS -->
+<div class="columnHandwash" id="handwash-div" style="display:none">
+<div class="leftHandwash">
+<div class="containerHandwash">
+
+  <div class="textheaderstyleHandwash">
+  <p>Handwashing Countdown Timer</p>
+  </div>
+
+    <div class="base-timer">
+      <svg class="base-timer__svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+        <g class="base-timer__circle">
+          <circle class="base-timer__path-elapsed" cx="50" cy="50" r="45"></circle>
+          <path
+            id="base-timer-path-remaining"
+            stroke-dasharray="283"
+            class="base-timer__path-remaining ${remainingPathColor}"
+            d="M 50, 50
+              m -45, 0
+              a 45,45 0 1,0 90,0
+              a 45,45 0 1,0 -90,0"></path>
+        </g>
+      </svg>
+      <span id="base-timer-label" class="base-timer__label"></span>
+    </div>
+
+    <div class="subtextstyleHandwash">
+      <p>Wash your hands until the countdown timer ends.</p>
+    </div>
+
+    <div class="smalllogoHandwash">
+    <img src="/static/Logo_24px.png" alt="Small Logo">
+</div>
+
+  <div class="rightHandwash">
+    <div style="left:175%;width:150%;height:100%;padding-top:5%;position:relative;"><iframe src="/static/handwashing.gif" width="100%" height="100%" style="position:absolute" frameBorder="0" class="giphy-embed" allowFullScreen></iframe></div>
+  </div>
+</div>
+</div>
+</div>
+<!-- END HANDWASH SCREEN DIVS -->
+
+<script src="https://cdn.jsdelivr.net/gh/mathusummut/confetti.js/confetti.min.js"></Script>
+
+  <!-- BEGIN DONE SCREEN DIVS -->
+<div class="containerDone" id="done-div" style="display:none">
+
+  <div class="logostyleDone">
+  <img src="/static/checkmark_24px.svg" alt="Checkmark">
+  </div>
+
+    <div class="textheaderstyleDone">
+    <p>Well Done!</p>
+    </div>
+
+    <div class="subtextstyleDone">
+      <p>Thank you for doing your part.</p>
+    </div>
+
+    <div class="smalllogoDone">
+    <img src="/static/Logo_24px.png" alt="Small Logo">
+
+</div>
+
+<!-- END DONE SCREEN DIVS -->
+
+<!-- SCRIPT FOR PROCESSING MESSAGES FROM SERVER -->
+  <script>
+    var presentStatus = "INIT";
+    var idleDiv = document.getElementById("idle-div");
+    var doneDiv = document.getElementById("done-div");
+    var inwashDiv = document.getElementById("handwash-div");
+  
+    // Start handwash timer that will be reset when screen loads
+    //startTimer();
+
+    // Message handling
+    var eventSource = new EventSource("/stream");
+    eventSource.onmessage = function(event) 
+    {
+      //targetContainer.innerHTML = event.data;
+      console.log(event.data);
+      //alert(event.data);
+  
+      if(event.data == "INWASH")
+      {
+        //alert(inwashDiv);
+        // Check present status -- do things -- update present status
+        
+        // stop confetti
+        confetti.stop();
+  
+        // hide other divs
+        idleDiv.style.display = "none";
+        doneDiv.style.display = "none";
+  
+        // show in-wash div
+        inwashDiv.style.display = "block";
+        
+        //console.log(hasTimerExpired());
+        // Start the countdown clock
+        if(isFirstRun())
+          startTimer();
+        else if (!isFirstRun() && hasTimerExpired()) //timer has expired
+        {
+          resetTimer();
+          startTimer();
+        }
+        else //timer is running
+        {
+          resetTimer();
+        }
+    
+      }
+      else if (event.data == "DONE")
+      {
+        //alert("DONE!")
+        // hide other divs
+        idleDiv.style.display = "none";
+        inwashDiv.style.display = "none";
+  
+        // show done div
+        doneDiv.style.display = "block"; 
+  
+        // rain confetti
+        confetti.start();
+  
+      }
+      else if (event.data == "IDLE")
+      {
+        // stop confetti
+        confetti.stop();
+        
+        // hide other divs
+        inwashDiv.style.display = "none";
+        doneDiv.style.display = "none";
+  
+        // show idle div
+        idleDiv.style.display = "block";
+  
+      }
+  
+    };
+  </script>
+
+</body>
+</html>
