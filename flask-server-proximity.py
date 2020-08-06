@@ -60,7 +60,8 @@ WASH_GIF_LENGTH = 25.5 #seconds
 last_ten_readings = []
 
 # Logging values
-deviceSerialNumber = 'xxxxxxxxx1'
+#deviceSerialNumber = 'xxxxxxxxx1'
+
 loggingServerURL = 'http://76.95.244.164:5000/'
 
 # DEFINE THREADING class
@@ -76,6 +77,22 @@ class loggingThread (threading.Thread):
       #print ("Exiting thread")
 
 # METHOD DEFINITIONS
+def getSerial():
+  # Extract serial from cpuinfo file
+  cpuserial = "0000000000000000"
+  try:
+    f = open('/proc/cpuinfo','r')
+    for line in f:
+      if line[0:6]=='Serial':
+        cpuserial = line[10:26]
+    f.close()
+  except:
+    cpuserial = "ERROR000000000"
+ 
+  return cpuserial
+
+deviceSerialNumber = getSerial()
+
 def buildLogURL(eventIDCode):
     return loggingServerURL+'log-event?deviceID='+deviceSerialNumber+'&logEventID='+str(eventIDCode)
 
